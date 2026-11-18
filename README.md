@@ -14,9 +14,9 @@ The central comparison is:
 
 For a classification prediction with averaged class probabilities \(\bar p_c\), predictive entropy is
 
-\[
+$$
 H(\bar p) = -\sum_c \bar p_c \log(\bar p_c).
-\]
+$$
 
 Higher entropy indicates a less concentrated predictive distribution. It is an uncertainty signal, not a guarantee that a prediction is wrong or that an input is out of distribution.
 
