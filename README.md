@@ -12,7 +12,7 @@ The central comparison is:
 - **Standard Dropout:** dropout is active during training and disabled during ordinary inference. Inference uses one deterministic forward pass.
 - **MC Dropout:** dropout remains active at inference. Multiple stochastic forward passes are performed, and the resulting predictive probabilities are averaged. The predictive entropy of this average is used as an uncertainty measure.
 
-For a classification prediction with averaged class probabilities \(\bar p_c\), predictive entropy is
+For a classification prediction with averaged class probabilities $\bar p_c$, predictive entropy is
 
 $$
 H(\bar p) = -\sum_c \bar p_c \log(\bar p_c).
@@ -26,14 +26,14 @@ Higher entropy indicates a less concentrated predictive distribution. It is an u
 
 **Synthetic regression**
 
-- The underlying function is \(y_{\mathrm{true}}(x)=\sin(1.5x)\), sampled at 300 points over \([-3,3]\).
-- Gaussian noise is heteroscedastic: its standard deviation grows with the magnitude of the input, using the scale factor `noise_scale * (0.1 + 0.5 * x**2)`.
+- The underlying function is $y_{\mathrm{true}}(x)=\sin(1.5x)$, sampled at 300 points over $[-3,3]$.
+- Gaussian noise is heteroscedastic: its standard deviation grows with the magnitude of the input.
 - A feed-forward network with two 64-unit hidden layers is trained with mean squared error.
 - No-dropout, standard-dropout, and MC-dropout variants are compared. MC predictions are estimated from repeated stochastic forward passes, and the notebook plots the predictive mean with a one-standard-deviation band.
 
 **Synthetic classification**
 
-- A three-class, two-dimensional dataset is generated with `make_blobs` (1,000 samples).
+- A three-class, two-dimensional dataset is generated.
 - A feed-forward network with hidden layers of 128 and 64 units is trained with cross-entropy loss.
 
 **Additional notebook experiments**
@@ -47,9 +47,9 @@ The notebook uses 200 stochastic forward passes for its main synthetic MC-predic
 
 The main training script is `main.py`. It trains a compact CNN on CIFAR-10 and compares one no-dropout baseline against dropout models with
 
-\[
+$$
 p \in \{0.2,\ 0.3,\ 0.4,\ 0.5\}.
-\]
+$$
 
 The CNN consists of two convolutional layers (32 channels each), ReLU activations, a 2×2 max-pooling layer, a 512-unit fully connected layer, and a 10-class output layer. In the dropout variant, dropout is applied after the 512-unit hidden layer.
 
