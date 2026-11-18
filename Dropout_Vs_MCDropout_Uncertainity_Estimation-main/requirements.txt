@@ -1,0 +1,14 @@
+# Core ML/DL packages
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+
+# Data handling
+pandas>=2.0.0
+
+# Visualization
+streamlit>=1.30.0
+plotly>=5.0.0
+
+# Progress bars
+tqdm>=4.65.0
