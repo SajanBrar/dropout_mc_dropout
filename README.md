@@ -67,17 +67,8 @@ The default training configuration in `main.py` is:
 | Training batch size | 128 |
 | Test batch size | 256 |
 | MC passes during per-epoch accuracy evaluation | 5 |
-| MC passes for dashboard inference | 30 |
 
 CIFAR-10 is treated as the in-distribution (ID) dataset and SVHN as the OOD dataset. 
-
-## Notes on auxiliary scripts
-
-- `test_updated_model.py`: standalone checks for the current CNN architecture and dropout behavior.
-- `pre_flight_check.py`: checks the expected training setup before the long run.
-- `fix_pickle.py`: converts tensors nested in the dashboard pickle into CPU NumPy arrays. It overwrites `dashboard_data.pkl`; make a backup before running it.
-- `load_and_plot_results.py`: an older plotting helper. It expects `pickled/mc_dropout/training_metrics.pkl`, which is not produced by the current `main.py` pipeline, and it needs `matplotlib`.
-- `test_training_flow.py`: a development-time serialization/data-structure test that contains an earlier model definition. Treat it as a historical helper rather than as an integration test for the current `main.py` implementation.
 
 ## References
 
